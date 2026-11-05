@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>beeyyo — Coming Soon to Kasaragod</title>
+  <meta name="description" content="beeyyo — quick commerce in Kasaragod, delivered in minutes. Coming soon." />
+  <meta name="theme-color" content="#ffc72e" />
+
+  <link rel="icon" href="assets/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon_48.png" />
+  <link rel="apple-touch-icon" href="assets/beeyyo_yellow_app-icon_dark_192.png" />
+
+  <link rel="canonical" href="https://beeyyo.in/" />
+  <meta name="robots" content="index, follow" />
+  <meta name="application-name" content="beeyyo" />
+  <meta name="apple-mobile-web-app-title" content="beeyyo" />
+
+  <!-- Open Graph (WhatsApp, Facebook, Messenger, Telegram, LinkedIn, Signal, iMessage, Slack, Discord) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="beeyyo" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:url" content="https://beeyyo.in/" />
+  <meta property="og:title" content="beeyyo — Coming Soon to Kasaragod" />
+  <meta property="og:description" content="Everything you need, delivered in minutes across Kasaragod. Stay excited!" />
+  <meta property="og:image" content="https://beeyyo.in/assets/beeyyo_yellow_social-avatar_yellow_1080.png" />
+  <meta property="og:image:secure_url" content="https://beeyyo.in/assets/beeyyo_yellow_social-avatar_yellow_1080.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1080" />
+  <meta property="og:image:height" content="1080" />
+  <meta property="og:image:alt" content="beeyyo logo — quick commerce coming soon to Kasaragod" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="beeyyo — Coming Soon to Kasaragod" />
+  <meta name="twitter:description" content="Everything you need, delivered in minutes across Kasaragod. Stay excited!" />
+  <meta name="twitter:image" content="https://beeyyo.in/assets/beeyyo_yellow_social-avatar_yellow_1080.png" />
+  <meta name="twitter:image:alt" content="beeyyo logo — quick commerce coming soon to Kasaragod" />
+
+  <!-- Fallbacks for older / non-OG crawlers -->
+  <meta itemprop="name" content="beeyyo — Coming Soon to Kasaragod" />
+  <meta itemprop="description" content="Everything you need, delivered in minutes across Kasaragod. Stay excited!" />
+  <meta itemprop="image" content="https://beeyyo.in/assets/beeyyo_yellow_social-avatar_yellow_1080.png" />
+  <link rel="image_src" href="https://beeyyo.in/assets/beeyyo_yellow_social-avatar_yellow_1080.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --yellow: #ffc72e;
+      --yellow-light: #ffe396;
+      --gold: #f7bd00;
+      --bg: #ffffff;
+      --ink: #1a0f16;
+      --muted: #5f5560;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Poppins', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      min-height: 100dvh;
+      position: relative;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Background layer (clipped so nothing causes horizontal scroll on mobile) */
+    .bg {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Animated glowing blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.22;
+      z-index: 0;
+      animation: float 14s ease-in-out infinite;
+    }
+    .blob.b1 { width: 480px; height: 480px; background: var(--yellow); top: -140px; left: -120px; }
+    .blob.b2 { width: 380px; height: 380px; background: #ff9a3c; bottom: -120px; right: -100px; animation-delay: -5s; opacity: 0.18; }
+    .blob.b3 { width: 300px; height: 300px; background: #a52cff; top: 45%; left: 60%; animation-delay: -9s; opacity: 0.12; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.08); }
+      66% { transform: translate(-30px, 30px) scale(0.95); }
+    }
+
+    /* Speed lines (quick commerce vibe) */
+    .speed {
+      position: absolute;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 199, 46, 0.55), transparent);
+      z-index: 0;
+      animation: zoom 3s linear infinite;
+      opacity: 0;
+    }
+    @keyframes zoom {
+      0% { transform: translateX(-30vw); opacity: 0; }
+      20% { opacity: 1; }
+      100% { transform: translateX(130vw); opacity: 0; }
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 1100px;
+      padding: 48px 24px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .content { animation: rise 1s ease-out both; }
+
+    .logo {
+      width: 96px;
+      height: 96px;
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(255, 199, 46, 0.35);
+      animation: pop 2.6s ease-in-out infinite;
+    }
+    @keyframes pop {
+      0%, 100% { transform: translateY(0) rotate(0); }
+      50% { transform: translateY(-8px) rotate(-3deg); }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 199, 46, 0.16);
+      border: 1px solid rgba(247, 189, 0, 0.45);
+      color: var(--ink);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 0 rgba(247, 189, 0, 0.7);
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(247, 189, 0, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(247, 189, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(247, 189, 0, 0); }
+    }
+
+    h1 {
+      margin-top: 22px;
+      font-size: clamp(2.6rem, 6vw, 4.6rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -1px;
+    }
+    h1 .grad {
+      background: linear-gradient(90deg, var(--gold), var(--yellow), var(--yellow-light), var(--gold));
+      background-size: 300% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shine 6s linear infinite;
+    }
+    @keyframes shine { to { background-position: 300% 0; } }
+
+    .tagline {
+      margin-top: 20px;
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+
+    .excited {
+      margin-top: 32px;
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .excited span {
+      display: inline-block;
+      animation: wave 1.4s ease-in-out infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); color: var(--gold); }
+    }
+
+    .tagline strong { color: var(--ink); }
+    .area { color: var(--ink) !important; }
+
+    .location {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 24px;
+      padding: 10px 18px;
+      border-radius: 14px;
+      background: #fff;
+      border: 1px solid rgba(26, 15, 22, 0.08);
+      box-shadow: 0 6px 20px rgba(255, 199, 46, 0.2);
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .location svg { color: var(--gold); flex-shrink: 0; }
+    .location strong { color: var(--ink); }
+
+    .socials {
+      margin-top: 24px;
+      color: rgba(26, 15, 22, 0.45);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    /* Phone mockup */
+    .phone-wrap {
+      display: flex;
+      justify-content: center;
+      animation: rise 1.2s 0.2s ease-out both;
+    }
+    .phone {
+      width: 280px;
+      aspect-ratio: 1290 / 2796;
+      border-radius: 42px;
+      padding: 10px;
+      background: linear-gradient(145deg, #2a1a24, #0b0609);
+      box-shadow:
+        0 30px 70px rgba(255, 199, 46, 0.3),
+        0 10px 30px rgba(26, 15, 22, 0.15),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.08);
+      transform: rotate(6deg);
+      animation: hover 5s ease-in-out infinite;
+    }
+    .phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 34px;
+      display: block;
+    }
+    @keyframes hover {
+      0%, 100% { transform: rotate(6deg) translateY(0); }
+      50% { transform: rotate(4deg) translateY(-16px); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      position: fixed;
+      bottom: 16px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(26, 15, 22, 0.4);
+      z-index: 1;
+    }
+    .support-link {
+      color: var(--ink);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .support-link:hover,
+    .support-link:focus-visible { text-decoration: underline; }
+
+    /* ---------- Tablet & mobile ---------- */
+    @media (max-width: 860px) {
+      body {
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+      main {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        text-align: center;
+        padding:
+          calc(36px + env(safe-area-inset-top))
+          calc(22px + env(safe-area-inset-right))
+          16px
+          calc(22px + env(safe-area-inset-left));
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .logo { width: 80px; height: 80px; border-radius: 20px; }
+      .badge { margin-top: 22px; }
+      h1 { margin-top: 18px; }
+      .tagline { margin-left: auto; margin-right: auto; }
+      .excited { margin-top: 24px; }
+      .socials { margin-top: 20px; }
+      .phone {
+        width: 220px;
+        border-radius: 36px;
+        padding: 8px;
+        animation-name: hover-m;
+      }
+      .phone img { border-radius: 29px; }
+      footer {
+        position: static;
+        margin-top: auto;
+        padding: 24px 16px calc(18px + env(safe-area-inset-bottom));
+      }
+      .blob.b1 { width: 320px; height: 320px; top: -100px; left: -110px; }
+      .blob.b2 { width: 260px; height: 260px; bottom: -80px; right: -90px; }
+      .blob.b3 { width: 200px; height: 200px; top: 50%; left: 50%; }
+    }
+
+    @keyframes hover-m {
+      0%, 100% { transform: rotate(3deg) translateY(0); }
+      50% { transform: rotate(1deg) translateY(-10px); }
+    }
+
+    /* ---------- Small phones ---------- */
+    @media (max-width: 480px) {
+      main { gap: 30px; padding-top: calc(28px + env(safe-area-inset-top)); }
+      .logo { width: 68px; height: 68px; border-radius: 18px; }
+      .badge { font-size: 0.72rem; padding: 7px 14px; letter-spacing: 1.5px; }
+      h1 { font-size: 2.3rem; letter-spacing: -0.5px; }
+      .tagline { font-size: 0.95rem; line-height: 1.55; }
+      .excited { font-size: 1.15rem; }
+      .location { font-size: 0.85rem; padding: 9px 14px; margin-top: 20px; }
+      .socials { font-size: 0.72rem; }
+      .phone { width: 180px; border-radius: 30px; padding: 7px; }
+      .phone img { border-radius: 24px; }
+    }
+
+    @media (max-width: 360px) {
+      h1 { font-size: 2rem; }
+      .phone { width: 160px; }
+    }
+
+    /* ---------- Phones in landscape ---------- */
+    @media (max-width: 960px) and (max-height: 500px) and (orientation: landscape) {
+      body { justify-content: center; }
+      main {
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 24px;
+        text-align: left;
+        padding-top: 20px;
+      }
+      .content { align-items: flex-start; }
+      .logo { width: 56px; height: 56px; border-radius: 14px; }
+      .badge { margin-top: 14px; }
+      h1 { font-size: 2rem; margin-top: 12px; }
+      .tagline { margin: 12px 0 0; font-size: 0.9rem; }
+      .excited { margin-top: 14px; font-size: 1rem; }
+      .location { margin-top: 12px; padding: 6px 12px; font-size: 0.8rem; }
+      .socials { margin-top: 10px; }
+      .phone { width: 130px; border-radius: 22px; padding: 5px; }
+      .phone img { border-radius: 18px; }
+      footer { padding-top: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+    <div class="speed" style="top:18%; width:220px; animation-delay:0s;"></div>
+    <div class="speed" style="top:42%; width:160px; animation-delay:1.2s;"></div>
+    <div class="speed" style="top:71%; width:260px; animation-delay:2.1s;"></div>
+    <div class="speed" style="top:86%; width:120px; animation-delay:0.6s;"></div>
+  </div>
+
+  <main>
+    <section class="content">
+      <img class="logo" src="assets/beeyyo_yellow_app-icon_yellow_rounded-preview_1024.png" alt="beeyyo logo" />
+
+      <div class="badge"><span class="dot"></span> Coming Soon</div>
+
+      <h1>Something <span class="grad">buzzing</span><br />is on its way.</h1>
+
+      <p class="tagline">
+        <strong>beeyyo</strong> is bringing your everyday essentials to doorsteps across
+        <strong class="area">Kasaragod</strong> in minutes.
+        Groceries, snacks, daily needs — faster than ever.
+      </p>
+
+      <p class="excited" aria-label="Stay excited!">
+        <span>S</span><span style="animation-delay:.05s">t</span><span style="animation-delay:.1s">a</span><span style="animation-delay:.15s">y</span>
+        &nbsp;<span style="animation-delay:.25s">e</span><span style="animation-delay:.3s">x</span><span style="animation-delay:.35s">c</span><span style="animation-delay:.4s">i</span><span style="animation-delay:.45s">t</span><span style="animation-delay:.5s">e</span><span style="animation-delay:.55s">d</span><span style="animation-delay:.6s">!</span>
+      </p>
+
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
+        Launching first in <strong>Kasaragod</strong>, Kerala
+      </p>
+
+      <p class="socials">LAUNCHING SOON ON ANDROID &amp; iOS</p>
+    </section>
+
+    <section class="phone-wrap">
+      <div class="phone">
+        <img src="assets/beeyyo_yellow_splash_yellow_1290x2796.png" alt="beeyyo app splash screen" />
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; <span id="yr"></span> beeyyo. All rights reserved. &nbsp;·&nbsp; <a class="support-link" href="mailto:support@beeyyo.com">support@beeyyo.com</a></footer>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
