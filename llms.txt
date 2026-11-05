@@ -1,0 +1,22 @@
+# beeyyo
+
+> beeyyo is a grocery delivery app coming soon to Kasaragod, Kerala, India.
+
+## About
+
+beeyyo plans to bring groceries, snacks, and everyday essentials to doorsteps across Kasaragod. The service is not yet launched; the landing page announces its upcoming availability.
+
+## Website
+
+- https://beeyyo.com/
+
+## Contact
+
+- Email: support@beeyyo.com
+
+## Relevant topics
+
+- Grocery delivery in Kasaragod
+- Online grocery shopping
+- Snacks and everyday essentials
+- Quick commerce
