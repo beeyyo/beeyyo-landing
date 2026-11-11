@@ -173,12 +173,30 @@
 
     .content { animation: rise 1s ease-out both; }
 
+    .hero-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
     .logo {
       width: 96px;
       height: 96px;
       border-radius: 24px;
       box-shadow: 0 12px 32px rgba(255, 199, 46, 0.35);
       animation: pop 2.6s ease-in-out infinite;
+    }
+    .brand-wordmark {
+      display: block;
+      width: 160px;
+      height: auto;
     }
     @keyframes pop {
       0%, 100% { transform: translateY(0) rotate(0); }
@@ -189,7 +207,6 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin-top: 28px;
       padding: 8px 18px;
       border-radius: 999px;
       background: rgba(255, 199, 46, 0.16);
@@ -243,16 +260,6 @@
       font-size: 1.3rem;
       font-weight: 600;
     }
-    .excited span {
-      display: inline-block;
-      animation: wave 1.4s ease-in-out infinite;
-    }
-
-    @keyframes wave {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-6px); color: var(--gold); }
-    }
-
     .tagline strong { color: var(--ink); }
     .area { color: var(--ink) !important; }
 
@@ -305,6 +312,9 @@
       border-radius: 34px;
       display: block;
     }
+
+    .flappy-game { display: none; }
+
     @keyframes hover {
       0%, 100% { transform: rotate(6deg) translateY(0); }
       50% { transform: rotate(4deg) translateY(-16px); }
@@ -336,90 +346,239 @@
     @media (max-width: 860px) {
       body {
         flex-direction: column;
+        align-items: stretch;
         justify-content: flex-start;
+        background:
+          radial-gradient(ellipse at 50% 0, rgba(255, 227, 150, 0.56), transparent 48%),
+          #fffdf7;
       }
+      .blob, .speed { display: none; }
       main {
-        grid-template-columns: 1fr;
-        gap: 36px;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto;
         padding:
-          calc(36px + env(safe-area-inset-top))
-          calc(22px + env(safe-area-inset-right))
-          16px
-          calc(22px + env(safe-area-inset-left));
+          calc(24px + env(safe-area-inset-top))
+          calc(20px + env(safe-area-inset-right))
+          12px
+          calc(20px + env(safe-area-inset-left));
       }
       .content {
         display: flex;
         flex-direction: column;
+        align-items: stretch;
+        padding: 24px;
+        border: 1px solid rgba(26, 15, 22, 0.07);
+        border-radius: 28px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 18px 48px rgba(116, 79, 14, 0.08);
+        text-align: left;
+      }
+      .hero-top { gap: 12px; }
+      .brand-lockup { gap: 10px; }
+      .logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 15px;
+        animation: none;
+        box-shadow: 0 5px 16px rgba(255, 199, 46, 0.24);
+      }
+      .brand-wordmark { width: 112px; }
+      .badge {
+        flex-shrink: 0;
+        gap: 7px;
+        padding: 7px 11px;
+        border-color: rgba(247, 189, 0, 0.38);
+        font-size: 0.67rem;
+        letter-spacing: 0.8px;
+      }
+      .dot { width: 7px; height: 7px; }
+      h1 {
+        max-width: 500px;
+        margin-top: 26px;
+        font-size: clamp(2.4rem, 7.5vw, 3.25rem);
+        line-height: 1.06;
+        letter-spacing: -1.5px;
+      }
+      h1 .grad {
+        background: none;
+        color: #b77900;
+        animation: none;
+      }
+      .tagline {
+        max-width: 470px;
+        margin: 14px 0 0;
+        font-size: 0.98rem;
+        line-height: 1.65;
+      }
+      .location {
+        align-self: flex-start;
+        gap: 8px;
+        margin-top: 16px;
+        padding: 9px 12px;
+        border-color: rgba(26, 15, 22, 0.07);
+        background: #fff;
+        box-shadow: 0 4px 14px rgba(116, 79, 14, 0.05);
+        font-size: 0.82rem;
+      }
+      .socials {
+        margin-top: 14px;
+        font-size: 0.68rem;
+        letter-spacing: 1px;
+      }
+      .flappy-game {
+        display: block;
+        width: 100%;
+        max-width: 520px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid rgba(185, 132, 20, 0.12);
+        border-radius: 26px;
+        background: linear-gradient(145deg, #fff8df, #fff1bd);
+        box-shadow: 0 14px 36px rgba(116, 79, 14, 0.08);
+        text-align: left;
+      }
+      .game-heading {
+        display: flex;
         align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
       }
-      .logo { width: 80px; height: 80px; border-radius: 20px; }
-      .badge { margin-top: 22px; }
-      h1 { margin-top: 18px; }
-      .tagline { margin-left: auto; margin-right: auto; }
-      .excited { margin-top: 24px; }
-      .socials { margin-top: 20px; }
-      .phone {
-        width: 220px;
-        border-radius: 36px;
-        padding: 8px;
-        animation-name: hover-m;
+      .game-heading h2 { font-size: 1.25rem; line-height: 1.2; letter-spacing: -0.4px; }
+      .game-heading p { margin-top: 4px; color: var(--muted); font-size: 0.8rem; }
+      .game-heading-mark {
+        display: grid;
+        width: 38px;
+        height: 38px;
+        flex: 0 0 38px;
+        place-items: center;
+        border-radius: 13px;
+        background: var(--yellow);
+        color: #8f6000;
+        font-size: 1.2rem;
       }
-      .phone img { border-radius: 29px; }
+      .game-frame {
+        position: relative;
+        overflow: hidden;
+        border: 4px solid rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        background: #fff2c5;
+        box-shadow: 0 8px 24px rgba(116, 79, 14, 0.12), 0 0 0 1px rgba(26, 15, 22, 0.05);
+      }
+      #game-canvas {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 6 / 7;
+        touch-action: none;
+      }
+      .game-hud {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+      .game-score {
+        padding: 5px 10px;
+        border: 1px solid rgba(26, 15, 22, 0.05);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--ink);
+        font-size: 0.76rem;
+        font-weight: 800;
+        box-shadow: 0 2px 8px rgba(26, 15, 22, 0.08);
+      }
+      .game-overlay {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(93, 62, 3, 0.16);
+      }
+      .game-overlay[hidden] { display: none; }
+      .game-panel {
+        width: min(100%, 270px);
+        padding: 20px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        background: rgba(255, 253, 247, 0.97);
+        text-align: center;
+        box-shadow: 0 12px 30px rgba(62, 42, 0, 0.14);
+      }
+      .game-panel h3 { font-size: 1.1rem; }
+      .game-panel p { margin-top: 6px; color: var(--muted); font-size: 0.8rem; line-height: 1.5; }
+      .game-start {
+        margin-top: 14px;
+        padding: 11px 22px;
+        border: 0;
+        border-radius: 999px;
+        background: var(--ink);
+        color: #fff;
+        font: inherit;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .game-start:hover { background: #38252f; }
+      .game-start:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+      .game-help { margin-top: 10px; color: #806b39; font-size: 0.74rem; text-align: center; }
+      .game-live {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+      .phone-wrap { display: none; }
       footer {
         position: static;
         margin-top: auto;
-        padding: 24px 16px calc(18px + env(safe-area-inset-bottom));
+        padding: 22px 16px calc(18px + env(safe-area-inset-bottom));
       }
-      .blob.b1 { width: 320px; height: 320px; top: -100px; left: -110px; }
-      .blob.b2 { width: 260px; height: 260px; bottom: -80px; right: -90px; }
-      .blob.b3 { width: 200px; height: 200px; top: 50%; left: 50%; }
     }
 
-    @keyframes hover-m {
-      0%, 100% { transform: rotate(3deg) translateY(0); }
-      50% { transform: rotate(1deg) translateY(-10px); }
-    }
-
-    /* ---------- Small phones ---------- */
     @media (max-width: 480px) {
-      main { gap: 30px; padding-top: calc(28px + env(safe-area-inset-top)); }
-      .logo { width: 68px; height: 68px; border-radius: 18px; }
-      .badge { font-size: 0.72rem; padding: 7px 14px; letter-spacing: 1.5px; }
-      h1 { font-size: 2.3rem; letter-spacing: -0.5px; }
-      .tagline { font-size: 0.95rem; line-height: 1.55; }
-      .excited { font-size: 1.15rem; }
-      .location { font-size: 0.85rem; padding: 9px 14px; margin-top: 20px; }
-      .socials { font-size: 0.72rem; }
-      .phone { width: 180px; border-radius: 30px; padding: 7px; }
-      .phone img { border-radius: 24px; }
+      main {
+        gap: 18px;
+        padding-top: calc(16px + env(safe-area-inset-top));
+      }
+      .content { padding: 20px; border-radius: 24px; }
+      .logo { width: 44px; height: 44px; border-radius: 14px; }
+      .brand-wordmark { width: 104px; }
+      .badge { padding: 7px 9px; font-size: 0.62rem; letter-spacing: 0.55px; }
+      h1 {
+        margin-top: 23px;
+        font-size: clamp(2.25rem, 10.5vw, 2.7rem);
+        letter-spacing: -1.2px;
+      }
+      .tagline { margin-top: 12px; font-size: 0.91rem; line-height: 1.6; }
+      .location { margin-top: 13px; font-size: 0.76rem; }
+      .socials { margin-top: 12px; font-size: 0.63rem; }
+      .flappy-game { padding: 16px; border-radius: 23px; }
+      .game-heading h2 { font-size: 1.12rem; }
     }
 
     @media (max-width: 360px) {
-      h1 { font-size: 2rem; }
-      .phone { width: 160px; }
-    }
-
-    /* ---------- Phones in landscape ---------- */
-    @media (max-width: 960px) and (max-height: 500px) and (orientation: landscape) {
-      body { justify-content: center; }
-      main {
-        grid-template-columns: 1.3fr 0.7fr;
-        gap: 24px;
-        text-align: left;
-        padding-top: 20px;
-      }
-      .content { align-items: flex-start; }
-      .logo { width: 56px; height: 56px; border-radius: 14px; }
-      .badge { margin-top: 14px; }
-      h1 { font-size: 2rem; margin-top: 12px; }
-      .tagline { margin: 12px 0 0; font-size: 0.9rem; }
-      .excited { margin-top: 14px; font-size: 1rem; }
-      .location { margin-top: 12px; padding: 6px 12px; font-size: 0.8rem; }
-      .socials { margin-top: 10px; }
-      .phone { width: 130px; border-radius: 22px; padding: 5px; }
-      .phone img { border-radius: 18px; }
-      footer { padding-top: 8px; }
+      main { padding-right: calc(14px + env(safe-area-inset-right)); padding-left: calc(14px + env(safe-area-inset-left)); }
+      .content { padding: 18px; }
+      .hero-top { gap: 8px; }
+      .brand-lockup { gap: 6px; }
+      .logo { width: 42px; height: 42px; }
+      .brand-wordmark { width: 82px; }
+      .badge { gap: 5px; padding: 7px 8px; font-size: 0.56rem; }
+      h1 { font-size: 2.15rem; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -440,29 +599,55 @@
 
   <main>
     <section class="content">
-      <img class="logo" src="assets/beeyyo_yellow_app-icon_yellow_rounded-preview_1024.png" alt="beeyyo grocery delivery app logo" />
+      <div class="hero-top">
+        <div class="brand-lockup">
+          <img class="logo" src="assets/beeyyo_yellow_app-icon_yellow_rounded-preview_1024.png" alt="" />
+          <img class="brand-wordmark" src="assets/beeyyo_wordmark.png" alt="beeyyo" />
+        </div>
+        <div class="badge"><span class="dot"></span> Coming Soon</div>
+      </div>
 
-      <div class="badge"><span class="dot"></span> Coming Soon</div>
-
-      <h1>Kasaragod's grocery app is <span class="grad">buzzing</span><br />into life.</h1>
+      <h1>Kasaragod, groceries are <span class="grad">on the way.</span></h1>
 
       <p class="tagline">
-        Looking for the best grocery app in Kasaragod? <strong>beeyyo</strong> is a new grocery delivery app bringing
-        groceries, snacks and everyday essentials to doorsteps across
-        <strong class="area">Kasaragod, Kerala</strong> in minutes. Online grocery shopping and daily needs delivery are coming soon.
-      </p>
-
-      <p class="excited" aria-label="Stay excited!">
-        <span>S</span><span style="animation-delay:.05s">t</span><span style="animation-delay:.1s">a</span><span style="animation-delay:.15s">y</span>
-        &nbsp;<span style="animation-delay:.25s">e</span><span style="animation-delay:.3s">x</span><span style="animation-delay:.35s">c</span><span style="animation-delay:.4s">i</span><span style="animation-delay:.45s">t</span><span style="animation-delay:.5s">e</span><span style="animation-delay:.55s">d</span><span style="animation-delay:.6s">!</span>
+        Groceries, snacks and everyday essentials, delivered to your doorstep in
+        <strong class="area">Kasaragod</strong>. Fresh finds are on the way.
       </p>
 
       <p class="location">
         <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>
-        Launching first in <strong>Kasaragod</strong>, Kerala
+        <span>Launching first in <strong>Kasaragod, Kerala</strong></span>
       </p>
 
       <p class="socials">LAUNCHING SOON ON ANDROID &amp; iOS</p>
+    </section>
+
+    <section class="flappy-game" aria-labelledby="game-title">
+      <div class="game-heading">
+        <div>
+          <h2 id="game-title">Play while you wait</h2>
+          <p>Take our little bee for a flight.</p>
+        </div>
+        <span class="game-heading-mark" aria-hidden="true">✦</span>
+      </div>
+      <div class="game-frame">
+        <canvas id="game-canvas" width="360" height="420" tabindex="0" role="img" aria-label="A flappy-style game. Tap the game area or press Space to help the bee fly between grocery shelves.">
+          Your browser does not support canvas. Use the start button to play the bee game.
+        </canvas>
+        <div class="game-hud" aria-hidden="true">
+          <span class="game-score">Score <span id="game-score">0</span></span>
+          <span class="game-score">Best <span id="game-best">0</span></span>
+        </div>
+        <div class="game-overlay" id="game-overlay">
+          <div class="game-panel">
+            <h3 id="game-message">Ready to buzz?</h3>
+            <p id="game-description">Tap to flap and dodge the shelves. How far can you go?</p>
+            <button class="game-start" id="game-start" type="button">Start playing</button>
+          </div>
+        </div>
+      </div>
+      <p class="game-help">Tap the game or press Space to flap</p>
+      <p class="game-live" id="game-live" aria-live="polite"></p>
     </section>
 
     <section class="phone-wrap">
@@ -474,8 +659,6 @@
 
   <footer>&copy; <span id="yr"></span> beeyyo. All rights reserved. &nbsp;·&nbsp; <a class="support-link" href="mailto:support@beeyyo.com">support@beeyyo.com</a></footer>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-  </script>
+  <script src="game.js"></script>
 </body>
 </html>
